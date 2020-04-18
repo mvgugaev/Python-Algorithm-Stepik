@@ -41,7 +41,7 @@ def fib_mod(n, m):
 def main():
     n, m = map(int, input().split())
 
-    # Get start time first method
+    # Get start time
     start = time.time()
 
     # Execute function
