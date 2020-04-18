@@ -1,8 +1,8 @@
-# import time
+import time
 
 
 # Base line method (use list)
-def fib_digit_list(n):
+def fib_digit_list(n: int) -> int:
 
     data_list = [0, 1]
 
@@ -16,7 +16,7 @@ def fib_digit_list(n):
 
 
 # Base line method (use vars for n - 1 and n - 2)
-def fib_digit_var(n):
+def fib_digit_var(n: int) -> int:
 
     before_value, last_value = 0, 1
 
@@ -31,6 +31,7 @@ def fib_digit_var(n):
 
     return last_value
 
+# Задача: Дано число 1 < n < 10^7, необходимо найти последнюю цифру n-го числа Фибоначчи.
 
 # Input: 696352
 # Output:
@@ -39,26 +40,27 @@ def fib_digit_var(n):
 # 9
 # Time:  0.04347491264343262 s
 
-def main():
+
+def main() -> None:
     n = int(input())
 
     # Get start time first method
-    # start = time.time()
+    start = time.time()
 
     # Execute function
-    # print(fib_digit_list(n))
+    print(fib_digit_list(n))
 
     # Show time
-    # print('Time: ', time.time() - start, 's')
+    print('Time: ', time.time() - start, 's')
 
     # Get start time second method
-    # start = time.time()
+    start = time.time()
 
     # Execute function
     print(fib_digit_var(n))
 
     # Show time
-    # print('Time: ', time.time() - start, 's')
+    print('Time: ', time.time() - start, 's')
 
 
 if __name__ == "__main__":
