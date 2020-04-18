@@ -26,11 +26,13 @@ def find_fib_var(n):
     if n == 1:
         return 1
 
-    for _ in range (1, n):
+    for _ in range(1, n):
         before_value, last_value = last_value, before_value + last_value
 
     return last_value
 
+
+# Задача: Дано целое число n от 1 до 40, необходимо вычислить nn-е число Фибоначчи
 
 # Input: 100000
 # Output:
