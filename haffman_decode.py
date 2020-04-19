@@ -55,7 +55,7 @@ def main():
 
     # Add symbols to tree
     for _ in range(0, letter_count):
-        letter, code = input().replace(':', '').split(' ')
+        letter, code = input().replace(':', '').split()
 
         add_element_to_tree(code_tree_head, code, letter)
 

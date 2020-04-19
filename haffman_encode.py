@@ -88,7 +88,17 @@ def haffman_tree_generator(data: str) -> TreeLink:
     return tree_link_order.array[0]
 
 
-get_code_from_tree
+# Create dict with result code
+def get_code_from_tree(element, code, result_dict):
+    if not element.child_list:
+        result_dict[element.letter] = code if code else '0'
+    else:
+
+        new_code = 0
+
+        for item in element.child_list:
+            get_code_from_tree(item, code + str(new_code), result_dict)
+            new_code += 1
 
 
 def main():

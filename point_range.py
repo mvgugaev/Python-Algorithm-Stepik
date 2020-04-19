@@ -72,7 +72,7 @@ def main() -> None:
 
     # Input ranges
     for _ in range(0, range_length):
-        ranges.append([int(i) for i in input().split(' ')])
+        ranges.append([int(i) for i in input().split()])
 
     points_result = get_ranges_layer_points_min_length(ranges)
 

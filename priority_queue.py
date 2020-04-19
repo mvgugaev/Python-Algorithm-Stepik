@@ -84,10 +84,9 @@ if __name__ == "__main__":
         operation = sys.stdin.readline()
 
         if 'Insert' in operation:
-            value = int(operation.split(' ')[1])
+            value = int(operation.split()[1])
             inst.insert_element(value)
         else:
-            # print(inst.data)
             result_list.append(str(inst.extract_max()))
 
     print('\n'.join(result_list))
