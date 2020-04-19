@@ -1,5 +1,6 @@
 import random
 import time
+import sys
 
 
 # Bag items quick sort with [[x, y, z], [x, y, z], [x, y, z], ...] by Z
@@ -58,6 +59,7 @@ def get_max_bag_gold(items: list, bag: int) -> float:
 # этом пропорционально уменьшатся), помещающихся в данный рюкзак, с точностью не менее
 # трёх знаков после запятой.
 
+# Run: python3 bag.py < test_data/bag.txt (file mode)
 # Input:
 # 3 50
 # 60 20
@@ -68,23 +70,48 @@ def get_max_bag_gold(items: list, bag: int) -> float:
 # Time:  0.32701897621154785 s
 
 
-def main():
-    items_length, bag = [int(i) for i in input().split(' ')]
+# Get data from file like
+# python3 bag.py < test_data/bag.txt
+# reader - generator, which get data from sys.stdin
+def get_data_from_file():
+    reader = (list(map(int, line.split())) for line in sys.stdin)
+    items_length, bag = next(reader)
+    items = list(reader)
 
-    # Get start time
-    start = time.time()
+    return items_length, bag, items
+
+
+# Get data from terminal input
+def get_data_from_terminal():
+    items_length, bag = [int(i) for i in input().split()]
 
     items = []
 
     # Input ranges
     for i in range(0, items_length):
-        items.append([int(i) for i in input().split(' ')])
+        items.append([int(i) for i in input().split()])
+
+    return items_length, bag, items
+
+
+def main():
+
+    # Use file As input
+    items_length, bag, items = get_data_from_file()
+
+    # Use terminal As input
+    # items_length, bag, items = get_data_from_terminal()
+
+    assert len(items) == items_length
+
+    # Get start time
+    start = time.time()
 
     # Execute function
     result_gold = get_max_bag_gold(items, bag)
 
     print('{:.3f}'.format(result_gold))
-
+    #
     # Show time
     print('Time: ', time.time() - start, 's')
 
