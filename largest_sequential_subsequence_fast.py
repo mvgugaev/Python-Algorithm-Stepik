@@ -1,59 +1,63 @@
 import sys
 
+# Задача: Дано целое число 1 ≤ n ≤ 10^5 и массив A[1…n],
+# содержащий неотрицательные целые числа, не превосходящие 10^9.
+# Найдите наибольшую невозрастающую подпоследовательность в A.
+# В первой строке выведите её длину k, во второй —
+# её индексы 1 ≤ i1 ​< i2 ​< … < ik ​≤ n (таким образом, A[i1] ≥ A[i2] ≥ … ≥ A[in]).
 
-def lower_bound(nums, target):
-    l, r = 0, len(nums) - 1
-    while l <= r:
-        mid = (l + r) // 2
-        if nums[mid] < target:
-            r = mid - 1
-        else:
-            l = mid + 1
-    return l
+# Input:
+# 5
+# 5 3 4 4 2
+
+# Output
+# 4
+# 1 3 4 5
 
 
 def get_max_sequence_len(array: list, n: int) -> list:
 
+    # Infinitive
     inf = 10 ** 10
 
-    F = [-inf] * (len(array) + 1)
-    PREV = [-1] * (len(array) + 1)
-    F[0] = inf
+    # Max number of non decrease sequence length i
+    # In array [5, 3, 4, 4, 2, 5, 9] max number of sequence len 1 = 9 [sec: 9],
+    # max number of sequence len 2 = 5 [sec: 5 5], len 3 = 4 (5 4 4)
+    # len 4 = 2 (5 4 4 2) => for [5, 3, 4, 4, 2, 5, 9] -> [9, 5, 4, 2]
+    # For correct work binary search we add -Inf to 0 position and Inf to other position
+    # Start: max_sequence_end_number = [Inf, -Inf, -Inf, -Inf, -Inf, -Inf, -Inf, -Inf]
+    # End: max_sequence_end_number = [Inf, 9, 5, 4, 2, -Inf, -Inf, -Inf]
+    max_sequence_end_number = [inf] + [-inf] * n
 
-    for i in range(len(array)):
-        left = 0
-        right = len(array)
+    # Previous sequence node
+    prev_sequence_node = [] * (n + 1)
+
+    # Fill max_sequence_end_number and prev_sequence_node
+    for i in range(n):
+        left, right = 0, n
+
         while right - left > 1:
 
             middle = (left + right) // 2
 
-            if F[middle] < array[i]:
+            if max_sequence_end_number[middle] < array[i]:
                 right = middle
             else:
                 left = middle
 
-        F[right] = array[i]
-        PREV.append([right, i, array[i]])
+        max_sequence_end_number[right] = array[i]
+        prev_sequence_node.append([right, i, array[i]])
 
-    # print(F)
-
+    # Find correct end of array max_sequence_end_number
     i = n
-
-    # print(F)
-
-    while F[i] == -inf:
+    while max_sequence_end_number[i] == -inf:
         i = i - 1
 
-    # print('Result F:', F[1: i + 1])
-    counter = len(F[1: i + 1])
-    # print('Counter: ', counter)
-
-    # print(PREV)
-    # print(len(F))
-
+    # Restore correct array from prev_sequence_node
+    counter = len(max_sequence_end_number[1: i + 1])
     result_array = []
 
-    for element in reversed(PREV):
+    for element in reversed(prev_sequence_node):
         if element != -1 and element[0] == counter:
             counter -= 1
             result_array.append(element[1] + 1)
@@ -65,9 +69,7 @@ def main():
     n = int(sys.stdin.readline())
     array = list(map(int, sys.stdin.readline().split()))
     result = get_max_sequence_len(array, n)
-    print(len(result))
-
-    print(' '.join(map(str, result)))
+    print(len(result), '\n', ' '.join(map(str, result)), end='', sep='')
 
 
 if __name__ == '__main__':

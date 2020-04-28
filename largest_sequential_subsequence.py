@@ -1,6 +1,18 @@
 import sys
 
 
+# Задача: Дано целое число 1≤n≤10^3 и массив A[1…n] натуральных чисел,
+# не превосходящих 2⋅10^9 . Выведите максимальное 1≤k≤n, для которого найдётся
+# подпоследовательность 1 ≤ i1 ​< i2 ​< … < ik ​≤ n длины k, в которой каждый элемент
+# делится на предыдущий (формально: для  всех 1 ≤ j < k, A[ij] | A[i{j+1}]).
+
+# Input:
+# 4
+# 3 6 7 12
+
+# Output
+# 3
+
 def get_max_sequence_len(array: list, n: int) -> int:
 
     # Max len sequence
@@ -28,7 +40,6 @@ def get_max_sequence_len(array: list, n: int) -> int:
 def main():
     n = int(sys.stdin.readline())
     array = list(map(int, sys.stdin.readline().split()))
-
     print(get_max_sequence_len(array, n))
 
 
