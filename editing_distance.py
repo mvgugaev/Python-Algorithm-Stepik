@@ -1,5 +1,15 @@
 import sys
 
+# Задача: Вычислите расстояние редактирования двух данных непустых строк длины
+# не более 10^2, содержащих строчные буквы латинского алфавита.
+
+# Input
+# short
+# ports
+
+# Output
+# 3
+
 
 def get_editing_distance(first: str, second: str) -> int:
 
