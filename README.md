@@ -1,11 +1,11 @@
-# Python-Algorit-Stepik
+# Python-Algorit-Stepik (Tasks solution)
 
- ![Python-Algorit-Stepik](https://github.com/mvgugaev/Python-Algorithm-Stepik/blob/master/media/rep_logo.png)
+ ![Python-Algorit-Stepik (Tasks solution)](https://github.com/mvgugaev/Python-Algorithm-Stepik/blob/master/media/rep_logo.png)
  
- A set of solutions to problems from the course "Algorithms: Theory and Practice. Methods" from Stepik.org/
- Course URL: https://stepik.org/course/217/
+ Алгоритмы для задача из курса "Алгоритмы: теория и практика. Методы" на Stepik.org/
+ URL курса: https://stepik.org/course/217/
  
- PS: При нахождении каких-либо ошибок или недочётов оставляйте изменения ввиде pull реквестов или комментируйте в issues.
+ PS: При нахождении каких-либо ошибок или недочётов оставляйте изменения ввиде Pull реквестов или комментируйте в Issues.
 
 #### **Глава 2 (Введение)**
 
