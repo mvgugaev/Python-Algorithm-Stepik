@@ -1,5 +1,7 @@
 # Python-Algorit-Stepik
 
+ ![Python-Algorit-Stepik](https://github.com/mvgugaev/Python-Algorithm-Stepik/blob/master/media/rep_logo.png)
+ 
  A set of solutions to problems from the course "Algorithms: Theory and Practice. Methods" from Stepik.org/
  Course URL: https://stepik.org/course/217/
  
